@@ -11,9 +11,10 @@ import { User } from "./models/user";
 export class AppComponent implements OnInit {
   constructor(private router: Router, private localStorage: LocalStorageService) {}
 
-  user: User;
+  get user(): any {
+    return this.localStorage.getItem('currentUser')
+  };
 
   ngOnInit() {
-   this.user = this.localStorage.getItem('currentUser');
   }
 }
