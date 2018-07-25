@@ -13,5 +13,9 @@ export class LocalStorageService {
     return JSON.parse(localStorage.getItem('ngChat.' + key));
   }
 
+  removeItem(key) {
+    return localStorage.removeItem('ngChat.' + key);
+  }
+
   constructor() { }
 }

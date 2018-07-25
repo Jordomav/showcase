@@ -19,6 +19,10 @@ export class UserService {
     return this.http.post<Res>(`${this.apiUrl}/userLogin`, authUser);
   }
 
+  logout() {
+    return this.localStorage.removeItem('currentUser');
+  }
+
   getUser(){
     this.user = this.localStorage.getItem('currentUser');
   }
