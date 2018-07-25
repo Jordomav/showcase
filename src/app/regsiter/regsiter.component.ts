@@ -11,7 +11,9 @@ export class RegsiterComponent implements OnInit {
 
   user: User = new User();
 
-  register(): void { this.registerService.register(this.user) };
+  register() {
+    this.registerService.register(this.user);
+  };
 
   constructor(private registerService: RegsiterService) { }
 

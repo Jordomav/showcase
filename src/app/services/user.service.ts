@@ -14,6 +14,7 @@ export class UserService {
   private apiUrl = 'http://localhost:3000';
 
   login(authUser) {
+    console.log(authUser);
     return this.http.post(`${this.apiUrl}/userLogin`, authUser);
   }
 
