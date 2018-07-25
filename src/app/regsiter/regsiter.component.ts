@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from "../models/user";
+import { RegsiterService } from '../services/regsiter.service';
 
 @Component({
   selector: 'app-regsiter',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegsiterComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User();
+
+  register(): void { this.registerService.register(this.user) };
+
+  constructor(private registerService: RegsiterService) { }
 
   ngOnInit() {
   }

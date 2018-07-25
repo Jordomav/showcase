@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">NgChat</a>
+  <a class="navbar-brand" routerLink="/">NgChat</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,24 +9,24 @@
       <li class="nav-item" [ngClass]="{'active': router.url === '/'}">
         <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item" [ngClass]="{'active': router.url === '/chat'}">
+      <li class="nav-item" [ngClass]="{'active': router.url === '/chat'}" *ngIf="user">
         <a class="nav-link" routerLink="/chat">Chat</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" *ngIf="user">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          {{user.name}}
         </a>
 
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/profile" [ngClass]="{'active': router.url === '/profile'}">Profile</a>
+          <a class="dropdown-item" [routerLink]="['/profile/', user.id]" [ngClass]="{'active': router.url === '/profile'}">Profile</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Logout</a>
         </div>
       </li>
-      <li class="nav-item" [ngClass]="{'active': router.url === '/register'}">
+      <li class="nav-item" [ngClass]="{'active': router.url === '/register'}" *ngIf="!user">
         <a class="nav-link" routerLink="/register">Register</a>
       </li>
-      <li class="nav-item" [ngClass]="{'active': router.url === '/login'}">
+      <li class="nav-item" [ngClass]="{'active': router.url === '/login'}" *ngIf="!user">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
     </ul>
