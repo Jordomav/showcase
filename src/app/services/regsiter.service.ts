@@ -12,9 +12,13 @@ export class RegsiterService {
 
   user: User;
 
-  register(newUser) {
-    console.log(newUser);
-    this.localStorage.setItem('currentUser', newUser);
+  private apiUrl = 'http://localhost:3000';
+
+  register(newUser: User) {
+    return this.http.post(`${this.apiUrl}/postUser`, newUser).subscribe((res) => {
+      this.localStorage.setItem('currentUser', newUser);
+    });
+
   }
 
   constructor(private http: HttpClient, private localStorage: LocalStorageService) { }
