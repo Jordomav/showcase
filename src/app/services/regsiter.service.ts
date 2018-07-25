@@ -4,7 +4,7 @@ import { LocalStorageService } from './local-storage.service';
 import { Observable } from 'rxjs';
 
 import { User } from "../models/user";
-import {UserService} from "./user.service";
+import { Res } from '../models/response';
 import {Router} from "@angular/router";
 
 @Injectable({
@@ -17,8 +17,7 @@ export class RegsiterService {
   private apiUrl = 'http://localhost:3000';
 
   register(newUser: User) {
-    return this.http.post(`${this.apiUrl}/postUser`, newUser).subscribe((res) => {
-      const authUser = { email: res.user.email, password: res.user.password };
+    return this.http.post<Res>(`${this.apiUrl}/postUser`, newUser).subscribe((res) => {
       this.zone.run(() => {
         this.localStorage.setItem('currentUser', res.user);
       });

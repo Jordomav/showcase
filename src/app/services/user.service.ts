@@ -3,6 +3,7 @@ import { LocalStorageService } from "./local-storage.service";
 import {User} from "../models/user";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Res} from "../models/response";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserService {
 
   login(authUser) {
     console.log(authUser);
-    return this.http.post(`${this.apiUrl}/userLogin`, authUser);
+    return this.http.post<Res>(`${this.apiUrl}/userLogin`, authUser);
   }
 
   getUser(){
