@@ -18,7 +18,7 @@
         </a>
 
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/profile/', user.id]" [ngClass]="{'active': router.url === '/profile'}">Profile</a>
+          <a class="dropdown-item" [routerLink]="['/profile/', user._id]" [ngClass]="{'active': router.url === '/profile'}">Profile</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Logout</a>
         </div>
