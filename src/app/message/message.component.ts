@@ -15,7 +15,7 @@ export class MessageComponent implements OnInit {
   socket;
   messages;
   message: string;
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://jordomav.ngrok.io';
 
   addMessage(msg) {
     this.messages.push(msg);

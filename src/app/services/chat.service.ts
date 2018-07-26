@@ -9,7 +9,7 @@ import {LocalStorageService} from "./local-storage.service";
 export class ChatService {
 
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://jordomav.ngrok.io';
 
   constructor(private http: HttpClient, private localStorage: LocalStorageService) { }
 

@@ -14,7 +14,7 @@ export class RegsiterService {
 
   user: User;
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://jordomav.ngrok.io';
 
   register(newUser: User) {
     return this.http.post<Res>(`${this.apiUrl}/postUser`, newUser).subscribe((res) => {

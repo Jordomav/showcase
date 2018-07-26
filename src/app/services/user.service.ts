@@ -12,7 +12,7 @@ export class UserService {
 
   user: User;
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://jordomav.ngrok.io';
 
   login(authUser) {
     console.log(authUser);
