@@ -1,15 +1,20 @@
 <div class="container">
-  <div class="card" style="margin-top: 20px" *ngFor="let msg of messages">
-    <div class="card-header">
-      {{msg.user}}
-    </div>
-    <div class="card-body">
-      <p class="card-text">{{msg.message}}</p>
+  <div #scrollMe style="height: 650px; overflow: scroll;">
+    <div class="card" style="margin-top: 20px; " *ngFor="let msg of messages">
+      <div class="card-header">
+        {{msg.user}}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{msg.message}}</p>
+      </div>
     </div>
   </div>
+  <form (ngSubmit)="sendMessage()" class="form-inline">
+    <div class="form-group mb-2">
+      <label for="message" class="sr-only">Message</label>
+      <input type="text" class="form-control" id="message" name="message" [(ngModel)]="message">
+    </div>
+    <button type="submit" class="btn btn-dark mb-2">Send</button>
+  </form>
 </div>
 
-<form (ngSubmit)="sendMessage()">
-  <input type="text" name="message" [(ngModel)]="message">
-  <button>ADD</button>
-</form>

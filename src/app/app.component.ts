@@ -10,7 +10,7 @@ import {UserService} from "./services/user.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router, private localStorage: LocalStorageService, private userService: UserService) {}
+  constructor(public router: Router, private localStorage: LocalStorageService, private userService: UserService) {}
 
   get user(): any {
     return this.localStorage.getItem('currentUser')

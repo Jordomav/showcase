@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewChecked, Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import io from 'socket.io-client';
 import {ActivatedRoute} from "@angular/router";
 import {LocalStorageService} from "../services/local-storage.service";
@@ -9,7 +9,8 @@ import {HttpClient} from "@angular/common/http";
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   chatName: string;
   socket;
@@ -35,6 +36,11 @@ export class MessageComponent implements OnInit {
 
   }
 
+  scrollToBottom(): void {
+    try {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    } catch(err) { }
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -49,7 +55,12 @@ export class MessageComponent implements OnInit {
     this.socket.on('chat message', (msg) => {
         console.log(msg);
         this.addMessage(msg);
-      })
+      });
+    this.scrollToBottom();
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
 }
