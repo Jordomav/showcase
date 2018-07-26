@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card" style="margin-top: 20px" *ngFor="let msg of messages">
+    <div class="card-header">
+      {{msg.user}}
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{msg.message}}</p>
+    </div>
+  </div>
+</div>
+
+<form (ngSubmit)="sendMessage()">
+  <input type="text" name="message" [(ngModel)]="message">
+  <button>ADD</button>
+</form>
