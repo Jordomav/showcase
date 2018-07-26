@@ -17,9 +17,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td><button class="btn btn-info">View</button></td>
+      <tr *ngFor="let chat of chats">
+       <th>{{chat.name}}</th>
+        <th>
+          <button class="btn btn-dark" [routerLink]="['/chat', chat.name]">Join</button>
+        </th>
       </tr>
       </tbody>
     </table>

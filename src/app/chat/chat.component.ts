@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import * as io from "socket.io-client";
 import {ChatService} from "../services/chat.service";
 
 
@@ -9,14 +8,13 @@ import {ChatService} from "../services/chat.service";
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-
-  // socket = io('http://localhost:3000');
+  chats;
 
   constructor(private chatService: ChatService) { }
 
   getChats(){
     this.chatService.getChats().subscribe((res) => {
-      console.log(res);
+      this.chats = res;
     });
   }
 

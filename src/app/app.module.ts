@@ -11,6 +11,7 @@ import { RegsiterComponent } from './regsiter/regsiter.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChatComponent } from './chat/chat.component';
 import { NewChatComponent } from './new-chat/new-chat.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NewChatComponent } from './new-chat/new-chat.component';
     ProfileComponent,
     ChatComponent,
     NewChatComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
