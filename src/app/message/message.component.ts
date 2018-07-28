@@ -45,7 +45,7 @@ export class MessageComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.chatName = params.name;
-      this.socket = io('http://localhost:3000/' + params.name);
+      this.socket = io('https://jordomav.ngrok.io/' + params.name);
     });
 
     this.getMessages().subscribe(res => {
